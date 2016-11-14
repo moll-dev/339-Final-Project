@@ -1,5 +1,11 @@
 # 339-Final-Project
 
+<b>Group Members:</b> Thomas Moll, Michael Snook, Davis Batten
+
+
+---
+
+
 ![](http://i.imgur.com/YGi96xN.jpg)
 
 LED Cubes are a common project for those wanting to experience hardware programming first hand.
