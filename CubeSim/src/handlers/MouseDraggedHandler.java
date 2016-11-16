@@ -11,15 +11,12 @@ public class MouseDraggedHandler implements EventHandler<MouseEvent>{
     private static final double MOUSE_SPEED = 0.1;    
     private static final double ROTATION_SPEED = 0.5;    
     private static final double TRACK_SPEED = 1.0;
-    
-	private CubeApp mApp;
-	
-	public MouseDraggedHandler(CubeApp app) {
-		mApp = app;
-	}
 	
 	@Override
 	public void handle(MouseEvent me) {
+		// Use the CubeApp Singleton
+		CubeApp mApp = cubesim.CubeApp.instance();
+		
         mApp.setOldMousePos(mApp.getMousePos());
         mApp.setMousePos(new Point2D(me.getSceneX(), me.getSceneY()));
         

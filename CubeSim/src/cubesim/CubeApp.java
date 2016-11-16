@@ -58,13 +58,14 @@ public class CubeApp extends Application{
     private static final double CAMERA_FAR_CLIP = 10000.0;
 
     
+    private static CubeApp instance = null;
     private Thread serverThread;
-    
     private Point2D mousePos;
     private Point2D mouseOld;
     
     
     LEDCube cube;
+    
    
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -82,9 +83,9 @@ public class CubeApp extends Application{
 		scene.setFill(Color.BLACK);
 		
 		// Setup handlers for GUI - Command Pattern
-		scene.setOnKeyPressed(new KeyboardHandler(this));
-		scene.setOnMousePressed(new MousePressedHandler(this));
-		scene.setOnMouseDragged(new MouseDraggedHandler(this));
+		scene.setOnKeyPressed(new KeyboardHandler());
+		scene.setOnMousePressed(new MousePressedHandler());
+		scene.setOnMouseDragged(new MouseDraggedHandler());
 		
 		mousePos = new Point2D(0.0, 0.0);
 		mouseOld = new Point2D(0.0, 0.0);
@@ -99,8 +100,15 @@ public class CubeApp extends Application{
 		serverThread = new Thread(task);
 		serverThread.setDaemon(true);
 		serverThread.start();
+		instance = this;
 	}
 	
+	public static CubeApp instance() {
+		if (instance == null) {
+			instance = new CubeApp();
+		}
+		return instance;
+	}
 	public void stop(){
 		serverThread.interrupt();
 	}

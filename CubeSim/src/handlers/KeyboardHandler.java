@@ -6,14 +6,9 @@ import javafx.scene.input.KeyEvent;
 
 public class KeyboardHandler implements EventHandler<KeyEvent> {
 	
-	private CubeApp mApp;
-	
-	public KeyboardHandler(CubeApp app) {
-		mApp = app;
-	}
-	
 	@Override
 	public void handle(KeyEvent event) {
+		CubeApp mApp = cubesim.CubeApp.instance();
 		switch (event.getCode()) {
 			case Z:
 				mApp.resetCamera();
