@@ -1,8 +1,10 @@
 package handlers;
 
 import cubesim.CubeApp;
+import factory.LEDCubeFactory;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.KeyCode;
 
 public class KeyboardHandler implements EventHandler<KeyEvent> {
 	
@@ -16,14 +18,20 @@ public class KeyboardHandler implements EventHandler<KeyEvent> {
 			case X:
 				mApp.toggleAxis();
 				break;
-			case T:
+			case C:
 				mApp.clearCube();
 				break;
-			case G:
-				mApp.getCube().LedTog(0, 0, 0);
-				break;
 			default:
-				break;
+				LEDCubeFactory.CubeType type = LEDCubeFactory.CubeType.BLANK;
+				
+				if (event.getCode() == KeyCode.DIGIT1){
+					type = LEDCubeFactory.CubeType.SQUARE;
+				} else if (event.getCode() == KeyCode.DIGIT2){
+					type = LEDCubeFactory.CubeType.PLANE;
+				}
+				
+				LEDCubeFactory.transmuteCube(mApp.getCube(), type);
 		}
+		
 	}
 }

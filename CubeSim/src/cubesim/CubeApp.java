@@ -9,6 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import factory.LEDCubeFactory;
 import handlers.KeyboardHandler;
 import handlers.MouseDraggedHandler;
 import handlers.MousePressedHandler;
@@ -130,6 +131,9 @@ public class CubeApp extends Application{
 		return cube;
 	}
 	
+	public void setCube() {
+	}
+	
 	public void clearCube() {
 		cube.clear();
 	}
@@ -205,8 +209,7 @@ public class CubeApp extends Application{
 	
 	private void buildLEDS() {
 		// Build a new LED Cube object with 8 as the dimention
-		cube = new LEDCube(8, new Point3D(0, 0, 50), 100);
-		cube.init();
+		cube = LEDCubeFactory.makeCube(8, new Point3D(0, 0, 50), LEDCubeFactory.CubeType.BLANK);
 		world.getChildren().addAll(cube.getChildren());
 	}
 	

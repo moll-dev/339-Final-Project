@@ -32,6 +32,7 @@ public class LEDCube extends Group{
 		array = new LED[n][n][n];
 		
 		offset = size/n/2;
+		init();
 	}
 	
 	public void clear(){
