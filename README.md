@@ -17,5 +17,5 @@ can interface with the server programmatically, via a common interface. This pro
 contain a pre-build client which will be able to program the simulator over `localhost`.
 
 ## Documentation
-Documentation for our project can be found underneath the `doc` folder
+Documentation for our project can be found underneath the `Documentation` folder
 
