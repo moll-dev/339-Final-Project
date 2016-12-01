@@ -24,6 +24,7 @@ public class LEDCube extends Group{
 	
 	public LEDCube(int n, Point3D p, float size){
 		super();
+		assert n > 1;
 		nsize = n;
 		edgeSize = size;
 		pos = p;
@@ -50,6 +51,9 @@ public class LEDCube extends Group{
 	}
 	
 	public void LedSet(int x, int y, int z, boolean val){
+		assert x > 0 && x < nsize;
+		assert y > 0 && y < nsize;
+		assert z > 0 && z < nsize;
 		if (val){
 			array[x][y][z].turnOn();
 		} else {
@@ -58,18 +62,30 @@ public class LEDCube extends Group{
 	}
 	
 	public boolean LedVal(int x, int y, int z){
+		assert x > 0 && x < nsize;
+		assert y > 0 && y < nsize;
+		assert z > 0 && z < nsize;
 		return array[x][y][z].isOn();
 	}
 	
 	public void LedOn(int x, int y, int z){
+		assert x > 0 && x < nsize;
+		assert y > 0 && y < nsize;
+		assert z > 0 && z < nsize;
 		array[x][y][z].turnOn();
 	}
 	
 	public void LedOff(int x, int y, int z){
+		assert x > 0 && x < nsize;
+		assert y > 0 && y < nsize;
+		assert z > 0 && z < nsize;
 		array[x][y][z].turnOff();;
 	}
 	
 	public void LedTog(int x, int y, int z){
+		assert x > 0 && x < nsize;
+		assert y > 0 && y < nsize;
+		assert z > 0 && z < nsize;
 		array[x][y][z].toggle();
 	}
 		
